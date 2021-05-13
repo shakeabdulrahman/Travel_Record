@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:MySubscription.ViewModel"
+             x:Class="MySubscription.View.LoginPage"
+             NavigationPage.HasNavigationBar="False"
+             NavigationPage.HasBackButton="False"
+             Padding="15">
+
+    <ContentPage.Resources>
+        <vm:LoginVM x:Key="vm" />
+    </ContentPage.Resources>
+    
+    <Grid BindingContext="{StaticResource vm}">
+        <StackLayout x:Name="loginstacklayout" VerticalOptions="Center">
+            <Entry Placeholder="Enter your Email" Text="{Binding Email, Mode=TwoWay}" Keyboard="Email"/>
+            <Entry Placeholder="Enter your Password" Text="{Binding Password, Mode=TwoWay}" IsPassword="True"/>
+            <Button Text="Login" Command="{Binding LoginCommand}" CommandParameter="{Binding CanLogin}"/>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Don't have an account?" />
+                <Label Text="Register" TextColor="Red" >
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Registerbuttonclicked" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+        </StackLayout>
+
+        <StackLayout x:Name="registerstacklayout" IsVisible="false" VerticalOptions="Center">
+            <Entry Placeholder="Enter your Name" Text="{Binding Name, Mode=TwoWay}"/>
+            <Entry Placeholder="Enter your Email" Text="{Binding Email, Mode=TwoWay}" Keyboard="Email"/>
+            <Entry Placeholder="Enter your Password" Text="{Binding Password, Mode=TwoWay}" IsPassword="True"/>
+            <Entry Placeholder="Confirm your Password" Text="{Binding ConfirmPassword, Mode=TwoWay}" IsPassword="True"/>
+            <Button Text="Register" Command="{Binding RegisterCommand}" CommandParameter="{Binding CanRegister}"/>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Already have an account?" />
+                <Label Text="Login" TextColor="Red" >
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Loginbuttonclicked" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+        </StackLayout>
+    </Grid>
+</ContentPage>

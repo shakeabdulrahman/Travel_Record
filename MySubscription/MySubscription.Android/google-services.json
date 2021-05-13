@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1078832463392",
+    "firebase_url": "https://practicefirebase1-d6526-default-rtdb.firebaseio.com",
+    "project_id": "practicefirebase1-d6526",
+    "storage_bucket": "practicefirebase1-d6526.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1078832463392:android:a7f7bddcf21d5ba3690645",
+        "android_client_info": {
+          "package_name": "com.companyname.mysubscription"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1078832463392-74ib7nfei2sc11rcp73s2r08ama77inc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCU-g9o32OkxBoMeLU7r7kH2CHmpQSTCMk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1078832463392-74ib7nfei2sc11rcp73s2r08ama77inc.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1078832463392-93936nqq24rp6hp8lgqn5nsmk280n33u.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.companyname.MySubscription"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:dm="clr-namespace:MySubscription.ViewModel"
+             x:Class="MySubscription.View.DetailPage"
+             Title="Detail Page"
+             Padding="15">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <dm:DetailVM x:Key="dme" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="savetoolbar2"
+                     BindingContext="{StaticResource dme}"
+                     Command="{Binding UpdateCommand}"
+                     CommandParameter="{Binding Name}"/>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <StackLayout BindingContext="{StaticResource dme}">
+            <Entry Text="{Binding Name, Mode=TwoWay}"/>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Is place visited?" VerticalOptions="Center"/>
+                <CheckBox IsChecked="{Binding IsActive, Mode=TwoWay}" />
+            </StackLayout>
+            <Button Text="Delete" TextColor="White" BackgroundColor="Red" 
+                    Command="{Binding DeleteCommand}"/>
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>

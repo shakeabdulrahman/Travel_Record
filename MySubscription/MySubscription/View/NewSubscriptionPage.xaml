@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:MySubscription.ViewModel"
+             x:Class="MySubscription.View.NewSubscriptionPage"
+             Title="Places near by"
+             BackgroundColor="White"
+             Padding="10">
+    <ContentPage.Resources>
+        <vm:NewSubscriptionVM x:Key="vm" />
+    </ContentPage.Resources>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="savetoolbar1" Command="{Binding Source={StaticResource vm}, Path=SaveCommand}"
+                     CommandParameter="{Binding Source={StaticResource vm}, Path=Name}"/>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <StackLayout BindingContext="{StaticResource vm}" VerticalOptions="Fill">
+            <StackLayout>
+                <Entry Text="{Binding Name, Mode=TwoWay}" Placeholder="Give name to the selected place" />
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Place visited?" VerticalOptions="Center"/>
+                    <CheckBox IsChecked="{Binding IsActive, Mode=TwoWay}" Color="DodgerBlue"/>
+                </StackLayout>
+            </StackLayout>
+
+            <Grid>
+                <ListView x:Name="venuelist"
+                      BindingContext="{StaticResource vm}"
+                      SelectedItem="{Binding SelectedVenue, Mode=TwoWay}"
+                      HasUnevenRows="True" Margin="0,20">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="auto" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Text="{Binding name, Mode=TwoWay}"
+                                       TextColor="Gray"
+                                       FontAttributes="Bold" />
+
+                                    <Label Grid.Row="1"
+                                       Text="{Binding location.address, Mode=TwoWay}"
+                                       TextColor="DodgerBlue" />
+
+                                    <Label Grid.Column="1"
+                                       Text="{Binding location.distance, StringFormat='{0} Meters', Mode=TwoWay}"
+                                       TextColor="LightGray" />
+
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <ActivityIndicator x:Name="loading" HorizontalOptions="Center" VerticalOptions="Center" Color="Red"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+    
+</ContentPage>

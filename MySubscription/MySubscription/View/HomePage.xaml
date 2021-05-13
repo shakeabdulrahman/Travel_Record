@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:MySubscription.ViewModel"
+             x:Class="MySubscription.View.HomePage"
+             Title="History"
+             BackgroundColor="White"
+             Padding="10">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <vm:SubscriptionVM x:Key="vme" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="addtoolbar" Clicked="ToolbarItem_Clicked" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <BoxView HeightRequest="1" BackgroundColor="Black"/>
+            <ListView HasUnevenRows="True"
+                      BindingContext="{StaticResource vme}"
+                      ItemsSource="{Binding Subscriptions}"
+                      SelectedItem="{Binding SelectedSubscription}" VerticalOptions="FillAndExpand">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Label Text="{Binding Name}" TextColor="Black" FontSize="17" FontAttributes="Bold"/>
+                                <Label Text="{Binding VenueName}" TextColor="DodgerBlue" FontSize="14" FontAttributes="Italic"/>
+                                <Label>
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Visited : " TextColor="Black" />
+                                            <Span Text="{Binding ActiveTrue}" TextColor="Red" />
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+
+
+</ContentPage>

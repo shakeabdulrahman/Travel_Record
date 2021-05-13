@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             xmlns:smv="clr-namespace:MySubscription.ViewModel"
+             x:Class="MySubscription.View.MapPage"
+             Padding="10"
+             Title="Map">
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <smv:SignOutVM x:Key="smve" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="logouttoolbar" BindingContext="{StaticResource smve}"
+                     Command="{Binding SignoutCommand}"/>
+    </ContentPage.ToolbarItems>
+
+    <StackLayout>
+        <BoxView HeightRequest="1" BackgroundColor="Black" Margin="0,0,0,-5"/>
+        <maps:Map x:Name="locationmaps"
+              VerticalOptions="FillAndExpand"
+              HorizontalOptions="FillAndExpand"
+                  MapType="Hybrid"/>
+    </StackLayout>
+    
+    
+</ContentPage>
