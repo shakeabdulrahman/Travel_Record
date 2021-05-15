@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.mysubscription" android:installLocation="preferExternal">
-	<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="30" />
-	<application android:label="MySubscription.Android" android:theme="@style/MainTheme" android:icon="@mipmap/TravelRecord">
+	<uses-sdk android:minSdkVersion="20" android:targetSdkVersion="30" />
+	<application android:theme="@style/MainTheme" android:icon="@mipmap/TravelRecord" android:label="Travel Record">
 		<meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyCAsPaPE2itUqxWglqkOB4oXJeZX_QSxRc" />
 	</application>
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
